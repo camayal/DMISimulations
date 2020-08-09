@@ -117,7 +117,7 @@ Following are the contents of bash files to run the code in HPC systems using SL
 
 ### 4.1. Orr (1995) models
 
-Three different models were simulated under Orr category (see table 1 or suppplementary table 1).
+Three different models were simulated under Orr category (see table 1 or supplementary table 1).
 
 #### 4.1.1. Orr model
 
@@ -452,7 +452,7 @@ for i in {1..100}; do echo ${RANDOM}${RANDOM} >> 100randoms.txt; done
 ```
 
 We ran a set of three experiments for different Ne (100, 1000, and 10000), with 100 independent runs each one. This run uses 75 cores!
-In this experiment mutation rate and recombination rate were scaled by a factor of 100 to increase the computational speed. Following bash script was used.
+In this experiment, mutation rate and recombination rate were scaled by a factor of 100 to increase the computational speed. Following bash script was used.
 
 ```bash
 for y in {0..3}
@@ -518,11 +518,11 @@ Extraction of DMI information followed this analysis (explained in section 5).
 for d in dem+sel_f100_m5r6*/; do cd $d; jsonObjectstoArray.sh *.json; multipleTimeGraphs.py *numHybsByNumofDMIs.json; extractAverageDnMis.py *infoHybs.json *resultTable.json; cd ..; done
 ```
 
-All CSV files were used as input for the python code wrote in the Jupyter Notebook called `JSON-to-DMIs-2.ipynb`
+All CSV files were used as input for the python code wrote in the Jupyter Notebook called `jsonToOrderOfFixtion.ipynb`
 
 ## 9. Mutational-Order analysis
 
-For quantifying homoplasy in fixation orders we ran three different simulations using the same set of randome seed thatn in section 8. Here is the script to run it using a predefine non-variable set of DMIs for each simulation.
+For quantifying homoplasy in fixation orders we ran three different simulations using the same set of random seeds used in section 8. Here is the script to run it using a predefine non-variable set of DMIs for each simulation.
 
 ```bash
 for y in {0..3}
