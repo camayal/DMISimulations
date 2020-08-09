@@ -22,8 +22,8 @@
 ## 1. Requirements
 
 Software required:
-[SLiM](https://messerlab.org/slim/) Simulation framework
-[dmiGenerator](https://github.com/camayal/dmiGenerator) Generates lists of theoretical DMIs base on a list of genes
+- [SLiM](https://messerlab.org/slim/) Simulation framework
+- [dmiGenerator](https://github.com/camayal/dmiGenerator) Generates lists of theoretical DMIs base on a list of genes
 
 Following script and programs can be found in `bin` folder. Parameters for all of these could be consulted using `scriptname -h`
 
