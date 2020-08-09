@@ -21,10 +21,14 @@
 
 ## 1. Requirements
 
+Software required:
+[SLiM](https://messerlab.org/slim/) Simulation framework
+[dmiGenerator](https://github.com/camayal/dmiGenerator) Generates lists of theoretical DMIs base on a list of genes
+
 Following script and programs can be found in `bin` folder. Parameters for all of these could be consulted using `scriptname -h`
 
 ```bash
-dmiGenerator.py #Generates lists of theoretical DMIs base on a list of genes
+# dmiGenerator.py #Generates lists of theoretical DMIs base on a list of genes
 multipleTimeGraphs.py #Uses numHybsByNumofDMIs.json file to extract the number of DMIs in average by hybrid
 extractAverageDnMis.py #Uses infoHybs.json file to extract the number of Dobzhansky and Muller incompatibilities in average by hybrid
 jsonObjectstoArray.sh #Transform JSON files with objects into one only JSON array
