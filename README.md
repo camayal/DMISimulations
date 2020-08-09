@@ -439,7 +439,7 @@ plotAlleleFrequencies.py 3258914890alleleFreq.json -f svg
 
 ## 7. Fitting curves
 
-We tested what pattern follow each accumulation curve obtained for each model. First visual examination for four different expressions was performed using Past3. To corroborate this estimations R was used, nslML function included minpack.lm library was used to calculate AIC, weights of AIC and final parameters. The script to do it is `AICw.R`. As explained before, this script is not intended to be use as a command line program; in order to change files names or folder paths, it must be done within the script itself.
+We tested what pattern follow each accumulation curve obtained for each model. R was used, nslML function included minpack.lm library was used to calculate AIC, weights of AIC and final parameters. The script to do it is `AICw.R`. As explained before, this script is not intended to be use as a command line program; in order to change files names or folder paths, it must be done within the script itself.
 
 Also we test the fit for DDI and ADI with the following R script `AICw_DDDA.R`.
 
