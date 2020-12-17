@@ -7,10 +7,10 @@ library(AICcmodavg); library(minpack.lm)
 files <- list("orr/orr_timeComparison.csv",
               "orr-inf/orr-inf_timeComparison.csv",
               "orr-inf+rev/orr-inf+rev_timeComparison.csv",
-              "dem/dem_timeComparison.csv",
-              "dem+rev/dem+rev_timeComparison.csv",
-              "dem+sel/dem+sel_timeComparison.csv",
-              "dem+rev+sel/dem+rev+sel_timeComparison.csv"
+              "ind/ind_timeComparison.csv",
+              "ind+rev/ind+rev_timeComparison.csv",
+              "ind+sel/ind+sel_timeComparison.csv",
+              "ind+rev+sel/ind+rev+sel_timeComparison.csv"
 )
 
 

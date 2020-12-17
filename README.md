@@ -8,16 +8,17 @@
     - [4.1.1. Orr model](#411-orr-model)
     - [4.1.2. Orr-Inf model](#412-orr-inf-model)
     - [4.1.3. Orr-Inf+Rev model](#413-orr-infrev-model)
-  - [4.2. Demographic models](#42-demographic-models)
-    - [4.2.1. Dem model](#421-dem-model)
-    - [4.2.2. Dem+Sel](#422-demsel)
-    - [4.2.3. Dem+Rev](#423-demrev)
-    - [4.2.4. Dem+Rev+Sel](#424-demrevsel)
+  - [4.2. Individual-based models](#42-individual-based-models)
+    - [4.2.1. Ind model](#421-ind-model)
+    - [4.2.2. Ind+Sel](#422-indsel)
+    - [4.2.3. Ind+Rev](#423-indrev)
+    - [4.2.4. Ind+Rev+Sel](#424-indrevsel)
 - [5. Extraction of DMI information](#5-extraction-of-dmi-information)
 - [6. Allele frequencies](#6-allele-frequencies)
 - [7. Fitting curves](#7-fitting-curves)
 - [8. Simulation of models with selection to show the effect of population size](#8-simulation-of-models-with-selection-to-show-the-effect-of-population-size)
 - [9. Mutational-Order analysis](#9-mutational-order-analysis)
+- [10. Demographic speciation model empirical tests](#10-demographic-speciation-model-empirical-tests)
 
 ## 1. Requirements
 
@@ -244,15 +245,15 @@ mkdir -p ${outputFolder}/
 slim -s ${S} -d "outputPath='${outputFolder}/'" -d ${note} -d ${uid} ${parametersToSlim} ${inputFolder}/${slimScript} > ${outfile}
 ```
 
-### 4.2. Demographic models
+### 4.2. Individual-based models
 
-#### 4.2.1. Dem model
+#### 4.2.1. Ind model
 
-Demographic dinamics.
+Individual-based dinamics.
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=dem
+#SBATCH --job-name=ind
 #SBATCH --output=%x_%A_%a.out
 #SBATCH --array=1-100
 #SBATCH --time=11:00:00
@@ -275,7 +276,7 @@ outputFolder=~/data/resultsForPaper/${SLURM_JOB_NAME}
 
 #define variables and toggles for dmiSim execution
 
-experimentName="dem"
+experimentName="Ind"
 slimScript=dmiSim_v2.10.slim
 S=${RANDOM}${RANDOM}
 KT=100
@@ -289,13 +290,13 @@ mkdir -p ${outputFolder}/
 slim -s ${S} -d "outputPath='${outputFolder}/'" -d ${note} -d ${uid} ${parametersToSlim} ${inputFolder}/${slimScript} > ${outfile}
 ```
 
-#### 4.2.2. Dem+Sel
+#### 4.2.2. Ind+Sel
 
-Demographic dinamics with multiple incompabitilities (sensu Orr & Turelli, 2001) like selection.
+Individual-based dinamics with multiple incompabitilities (sensu Orr & Turelli, 2001) with selection.
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=dem+sel
+#SBATCH --job-name=ind+sel
 #SBATCH --output=%x_%A_%a.out
 #SBATCH --array=1-100
 #SBATCH --time=119:00:00
@@ -317,7 +318,7 @@ currentArray=${SLURM_ARRAY_TASK_ID}
 outputFolder=~/data/resultsForPaper/${SLURM_JOB_NAME}
 
 #define variables and toggles for dmiSim execution
-experimentName="dem+sel"
+experimentName="ind+sel"
 slimScript=dmiSim_v2.10.slim
 S=${RANDOM}${RANDOM}
 KT=100
@@ -331,9 +332,9 @@ mkdir -p ${outputFolder}/
 slim -s ${S} -d "outputPath='${outputFolder}/'" -d ${note} -d ${uid} ${parametersToSlim} ${inputFolder}/${slimScript} > ${outfile}
 ```
 
-#### 4.2.3. Dem+Rev
+#### 4.2.3. Ind+Rev
 
-Demographic dinamics with reversible states.
+Individual-based dinamics with reversible states.
 
 ```bash
 #!/bin/bash
@@ -359,7 +360,7 @@ currentArray=${SLURM_ARRAY_TASK_ID}
 outputFolder=~/data/resultsForPaper/${SLURM_JOB_NAME}
 
 #define variables and toggles for dmiSim execution
-experimentName="dem+rev"
+experimentName="ind+rev"
 slimScript=dmiSim_v2.10.slim
 S=${RANDOM}${RANDOM}
 KT=100
@@ -373,13 +374,13 @@ mkdir -p ${outputFolder}/
 slim -s ${S} -d "outputPath='${outputFolder}/'" -d ${note} -d ${uid} ${parametersToSlim} ${inputFolder}/${slimScript} > ${outfile}
 ```
 
-#### 4.2.4. Dem+Rev+Sel
+#### 4.2.4. Ind+Rev+Sel
 
-Demographic dinamics with reversible states and multiple incompabitilities (sensu Orr & Turelli, 2001) like selection.
+Individual-based dinamics with reversible states and multiple incompabitilities (sensu Orr & Turelli, 2001) with selection.
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=dem+rev+sel
+#SBATCH --job-name=ind+rev+sel
 #SBATCH --output=%x_%A_%a.out
 #SBATCH --array=1-100
 #SBATCH --time=119:00:00
@@ -401,7 +402,7 @@ currentArray=${SLURM_ARRAY_TASK_ID}
 outputFolder=~/data/resultsForPaper/${SLURM_JOB_NAME}
 
 #define variables and toggles for dmiSim execution
-experimentName="dem+rev+sel"
+experimentName="ind+rev+sel"
 slimScript=dmiSim_v2.10.slim
 S=${RANDOM}${RANDOM}
 KT=100
@@ -471,7 +472,7 @@ S=$(sed "${line}q;d" 100randoms.txt)
 slimScript=dmiSim_v2.13.slim
 totalHybCohort=100
 
-experimentName="dem+sel_f100_m5r6_100i_24g_final"
+experimentName="ind+sel_f100_m5r6_100i_24g_final"
 KT=100
 parametersToSlim="-d mutRate=1e-5 -d recRate=1e-6 -d N=3500 -d K1=${KT} -d K2=${KT} -d K3=${KT} -d a=24 -d totalHybCohort=${totalHybCohort} -d probSup=1 -d gl=300 -d sl=2000 -d zoom=F"
 note="note='${experimentName}'"
@@ -482,7 +483,7 @@ mkdir -p ${outputFolder}/
 slim -s ${S} -d "outputPath='${outputFolder}/'" -d ${note} -d ${uid} ${parametersToSlim} ${inputFolder}/${slimScript} > ${outfile} &
 
 
-experimentName="dem+sel_f100_m5r6_1000i_24g_final"
+experimentName="ind+sel_f100_m5r6_1000i_24g_final"
 KT=1000
 parametersToSlim="-d mutRate=1e-5 -d recRate=1e-6 -d N=3500 -d K1=${KT} -d K2=${KT} -d K3=${KT} -d a=24 -d totalHybCohort=${totalHybCohort} -d probSup=1 -d gl=300 -d sl=2000 -d zoom=F"
 note="note='${experimentName}'"
@@ -493,7 +494,7 @@ mkdir -p ${outputFolder}/
 slim -s ${S} -d "outputPath='${outputFolder}/'" -d ${note} -d ${uid} ${parametersToSlim} ${inputFolder}/${slimScript} > ${outfile} &
 
 
-experimentName="dem+sel_f100_m5r6_10000i_24g_final"
+experimentName="ind+sel_f100_m5r6_10000i_24g_final"
 KT=10000
 parametersToSlim="-d mutRate=1e-5 -d recRate=1e-6 -d N=3500 -d K1=${KT} -d K2=${KT} -d K3=${KT} -d a=24 -d totalHybCohort=${totalHybCohort} -d probSup=1 -d gl=300 -d sl=2000 -d zoom=F"
 note="note='${experimentName}'"
@@ -515,7 +516,7 @@ done
 Extraction of DMI information followed this analysis (explained in section 5).
 
 ```console
-for d in dem+sel_f100_m5r6*/; do cd $d; jsonObjectstoArray.sh *.json; multipleTimeGraphs.py *numHybsByNumofDMIs.json; extractAverageDnMis.py *infoHybs.json *resultTable.json; cd ..; done
+for d in ind+sel_f100_m5r6*/; do cd $d; jsonObjectstoArray.sh *.json; multipleTimeGraphs.py *numHybsByNumofDMIs.json; extractAverageDnMis.py *infoHybs.json *resultTable.json; cd ..; done
 ```
 
 All CSV files were used as input for the python code wrote in the Jupyter Notebook called `jsonToOrderOfFixtion.ipynb`
@@ -578,3 +579,9 @@ done
 ```
 
 Allele frequency files were used as input for the python code wrote in the Jupyter Notebook called `jsonToOrderOfFixtion.ipynb` in order to plot the order of fixation.
+
+## 10. Demographic speciation model empirical tests
+
+To test our new speciation model we used species-level trees and distribution range information for birds and mammals. We calculated diversification rates for every species (tip) and tested the correlation of them and the distribution range as indirect measurement of population size using Phylogenetic Linear Regression and simple linear regression.
+
+All code to reproduce those results is found in the following Jupyter Notebooks: `Demographic-speciation-birds.ipynb` and `Demographic-speciation-mammals.ipynb`.

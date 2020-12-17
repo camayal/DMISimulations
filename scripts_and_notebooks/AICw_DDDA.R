@@ -7,10 +7,10 @@ library(AICcmodavg); library(minpack.lm)
 files <- list("orr/orrinfoHybs_AVG_DnMis_intime_withErrors.csv",
               "orr-inf/orr-infinfoHybs_AVG_DnMis_intime_withErrors.csv",
               "orr-inf+rev/orr-inf+revinfoHybs_AVG_DnMis_intime_withErrors.csv",
-              "dem/deminfoHybs_AVG_DnMis_intime_withErrors.csv",
-              "dem+rev/dem+revinfoHybs_AVG_DnMis_intime_withErrors.csv",
-              "dem+sel/dem+selinfoHybs_AVG_DnMis_intime_withErrors.csv",
-              "dem+rev+sel/dem+rev+selinfoHybs_AVG_DnMis_intime_withErrors.csv"
+              "ind/indinfoHybs_AVG_DnMis_intime_withErrors.csv",
+              "ind+rev/ind+revinfoHybs_AVG_DnMis_intime_withErrors.csv",
+              "ind+sel/ind+selinfoHybs_AVG_DnMis_intime_withErrors.csv",
+              "ind+rev+sel/ind+rev+selinfoHybs_AVG_DnMis_intime_withErrors.csv"
 )
 
 
