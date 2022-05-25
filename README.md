@@ -114,7 +114,7 @@ done
 
 ## 4. Simulation of models included in main document
 
-Following are the contents of bash files to run the code in HPC systems using SLURM. Copy of those files can be found in `sbatchs` folder.
+Following are the contents of bash files to run the code in HPC systems using SLURM. Copy of those files can be found in `sbatchs_and_results` folder along with the raw results of each simulation.
 
 ### 4.1. Orr (1995) models
 
